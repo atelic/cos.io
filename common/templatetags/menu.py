@@ -27,7 +27,7 @@ def top_menu(context, parent, calling_page=None):
                            if calling_page else False)
     return {
         'calling_page': calling_page,
-        'menuitems': menuitems,
+        'menuitems': sorted(menuitems, key=lambda p: p.custompage.menu_order),
         # required by the pageurl tag that we want to use within this template
         'request': context['request'],
     }
